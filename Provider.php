@@ -18,7 +18,7 @@ class Provider extends AbstractProvider
     /**
      * {@inheritdoc}
      */
-    protected $scopes = ['openid', 'email', 'profile'];
+    protected $scopes = ['openid', 'email', 'profile', 'uuid'];
 
     /**
      * {@inheritdoc}
@@ -141,7 +141,7 @@ class Provider extends AbstractProvider
         return (new User())->setRaw($user)->map(
             [
                 'email'    => $user['email'],
-                'id'       => $user['sub'],
+                'id'       => $user['uuid'],
                 'name'     => $user['name'],
             ]
         );
